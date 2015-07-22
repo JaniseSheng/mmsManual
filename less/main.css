@@ -569,12 +569,10 @@ input[type="date"]:before {
   background-color: #3498db;
   z-index: 99;
 }
-#st-trigger-effects > .w-container > a,
-#st-trigger-effects > .w-container > button {
+/*#st-trigger-effects > .w-container > a{
   position: absolute;
   height: 64px;
   left: 0;
-  background-color: transparent;
   border: 0;
   outline: 0;
   outline-style: none;
@@ -587,7 +585,7 @@ input[type="date"]:before {
   color: #ffffff;
   font-size: 3.6rem;
   padding: 14px;
-}
+}*/
 #st-trigger-effects > .w-container > a {
   left: auto;
   right: 0;
@@ -1199,6 +1197,7 @@ i {
 }
 #sub-list li.more-content,
 #list li.more-content {
+  text-align: center;
   width: 100% !important;
   position: relative;
   padding-right: 12px;
@@ -2358,4 +2357,107 @@ select {
 }
 #busSelect > select {
   margin: 12px 0;
+}
+#st-trigger-effects > .w-container > a {
+  position: absolute;
+  height: 36px;
+  width: 96px;
+  left: 24px;
+  top: 0;
+  bottom: 0;
+  margin: auto 0;
+  border: 0;
+  outline: 0;
+  outline-style: none;
+  outline-width: 0;
+  -webkit-user-select: none;
+  -khtml-user-select: none;
+  -moz-user-select: none;
+  -ms-user-select: none;
+  user-select: none;
+  color: #ffffff;
+  line-height: 1;
+  font-size: 1.6rem;
+}
+@media (max-width: 767px) {
+  #st-trigger-effects > .w-container > a {
+    font-size: 1.2rem;
+    width: 62px;
+  }
+}
+#menuInfoBox {
+  position: absolute;
+  width: 60%;
+  height: 40%;
+  top: 20px;
+  right: 0;
+  left: 0;
+  margin: 0 auto;
+  background-color: #003300;
+  border: 1px solid cadetblue;
+  -webkit-border-radius: 5px;
+  -moz-border-radius: 5px;
+  border-radius: 5px;
+  color: white;
+  padding: 24px;
+}
+@media (max-width: 767px) {
+  #menuInfoBox {
+    height: 200px;
+  }
+}
+@media (max-width: 481px) {
+  #menuInfoBox {
+    height: 150px;
+  }
+}
+#menuInfoBox > p {
+  text-align: center;
+}
+#scroller > div:first-of-type {
+  position: relative;
+  top: 0;
+  left: 0;
+  right: 0;
+  height: 64px;
+  text-align: center;
+  font-size: 1.8rem;
+  color: #ffffff;
+  background-color: #918a8e;
+  z-index: 99;
+}
+#scroller > div:first-of-type > a {
+  position: absolute;
+  height: 36px;
+  width: 96px;
+  top: 0;
+  bottom: 0;
+  margin: auto 0;
+  border: 0;
+  outline: 0;
+  outline-style: none;
+  outline-width: 0;
+  -webkit-user-select: none;
+  -khtml-user-select: none;
+  -moz-user-select: none;
+  -ms-user-select: none;
+  user-select: none;
+  color: #ffffff;
+  line-height: 1;
+  font-size: 1.6rem;
+}
+@media (max-width: 767px) {
+  #scroller > div:first-of-type > a {
+    font-size: 1.2rem;
+    width: 62px;
+  }
+}
+#scroller > div:first-of-type > a:first-of-type {
+  left: 24px;
+}
+#scroller > div:first-of-type > a:nth-of-type(2) {
+  right: 160px;
+}
+#scroller > div:first-of-type > a:last-of-type {
+  right: 24px;
 }
