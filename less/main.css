@@ -407,6 +407,7 @@ input[type="date"]:before {
   padding-bottom: 24px;
 }
 .st-pusher {
+  overflow-x: hidden;
   position: relative;
   min-height: 100%;
   -webkit-transition: -webkit-transform 0.5s;
@@ -1156,7 +1157,7 @@ i {
 #list a {
   position: relative;
   display: block;
-  padding: 12px 24px 12px 64px;
+  padding: 12px 24px 12px 24px;
   -webkit-transition: background 0.3s;
   transition: background 0.3s;
 }
@@ -1206,10 +1207,10 @@ i {
 #list li.more-content:after {
   content: "";
   height: 1px;
-  width: 100%;
+  right: 24px;
   position: absolute;
   bottom: 0;
-  left: 64px;
+  left: 24px;
   background-color: #bdc3c7;
 }
 #sub-list li.more-content:last-child:after,
@@ -1218,11 +1219,11 @@ i {
 }
 #sub-list li.more-content > i,
 #list li.more-content > i {
-  font-size: 3.6rem;
-  height: 3.6rem;
-  color: #bdc3c7;
+  font-size: 2.4rem;
+  height: 2.4rem;
+  color: #0f89c7;
   position: absolute;
-  right: 12px;
+  right: 24px;
   top: 0;
   bottom: 0;
   margin: auto 0;
@@ -2358,6 +2359,11 @@ select {
 #busSelect > select {
   margin: 12px 0;
 }
+@media (max-width: 767px) {
+  #st-trigger-effects span {
+    font-size: 1.4rem;
+  }
+}
 #st-trigger-effects > .w-container > a {
   position: absolute;
   height: 36px;
@@ -2383,12 +2389,19 @@ select {
   #st-trigger-effects > .w-container > a {
     font-size: 1.2rem;
     width: 62px;
+    height: 24px;
+    line-height: 0.1rem;
+    padding-left: 0;
+    padding-right: 0;
   }
 }
-#menuInfoBox {
+#menuInfoBox,
+#commitInfoBox {
+  text-wrap: normal;
+  word-wrap: break-word;
+  word-break: break-all;
   position: absolute;
   width: 60%;
-  height: 40%;
   top: 20px;
   right: 0;
   left: 0;
@@ -2401,32 +2414,139 @@ select {
   color: white;
   padding: 24px;
 }
+#menuInfoBox span,
+#commitInfoBox span,
+#menuInfoBox p,
+#commitInfoBox p {
+  text-align: center;
+}
+@media (max-width: 767px) {
+  #menuInfoBox span,
+  #commitInfoBox span,
+  #menuInfoBox p,
+  #commitInfoBox p {
+    font-size: 1.4rem;
+  }
+}
+@media (max-width: 497px) {
+  #menuInfoBox span,
+  #commitInfoBox span,
+  #menuInfoBox p,
+  #commitInfoBox p {
+    font-size: 1rem;
+  }
+}
 @media (max-width: 767px) {
   #menuInfoBox {
-    height: 200px;
+    max-height: 180px;
+    overflow-y: scroll;
   }
 }
-@media (max-width: 481px) {
-  #menuInfoBox {
-    height: 150px;
+#commitInfoBox {
+  height: 400px;
+}
+@media (max-width: 767px) {
+  #commitInfoBox {
+    width: 70%;
+    height: 280px;
   }
 }
-#menuInfoBox > p {
-  text-align: center;
+#commitInfoBox > div {
+  position: absolute;
+  display: inline-block;
+  right: 24px;
+  left: 24px;
 }
-#scroller > div:first-of-type {
+#commitInfoBox > div:first-of-type {
+  height: 24px;
+  padding-left: 48px;
+}
+#commitInfoBox > div:first-of-type > span {
+  position: absolute;
+  left: 0;
+}
+#commitInfoBox > div:first-of-type > input {
+  width: 100%;
+  height: 24px;
+}
+@media (max-width: 767px) {
+  #commitInfoBox > div:first-of-type > input {
+    font-size: 1.4rem;
+  }
+}
+@media (max-width: 497px) {
+  #commitInfoBox > div:first-of-type > input {
+    font-size: 1rem;
+  }
+}
+#commitInfoBox > div:nth-of-type(2) {
+  top: 64px;
+  height: 24px;
+}
+#commitInfoBox > div:nth-of-type(2) > textarea {
+  height: 214px;
+  max-height: 214px;
+}
+@media (max-width: 767px) {
+  #commitInfoBox > div:nth-of-type(2) > textarea {
+    height: 96px;
+    max-height: 96px;
+    font-size: 1.4rem;
+  }
+}
+@media (max-width: 497px) {
+  #commitInfoBox > div:nth-of-type(2) > textarea {
+    font-size: 1rem;
+  }
+}
+#commitInfoBox > a {
+  position: absolute;
+  left: 24px;
+  right: 24px;
+  bottom: 24px;
+}
+#scroller {
+  text-wrap: normal;
+  word-wrap: break-word;
+  word-break: break-all;
+}
+#scroller > .contentTitle {
   position: relative;
+  width: 100%;
+  display: inline-block;
+  padding: 12px 0 12px 24px;
+}
+#scroller > .contentTitle > i {
+  position: absolute;
+  height: 15px;
+  left: 0;
   top: 0;
+  bottom: 0;
+  margin: auto 0;
+  color: #218bd4;
+}
+.subheader {
+  margin-left: auto;
+  margin-right: auto;
+  max-width: 767px;
+  position: relative;
+  height: 64px;
+}
+.subheader:before {
+  left: -50%;
+  content: "";
+  width: 200%;
+  height: 64px;
+  position: absolute;
+  background-color: #ffa2bf;
+}
+.subheader > #subNavInfo {
+  position: absolute;
   left: 0;
   right: 0;
-  height: 64px;
-  text-align: center;
-  font-size: 1.8rem;
-  color: #ffffff;
-  background-color: #918a8e;
-  z-index: 99;
+  margin: 0 auto;
 }
-#scroller > div:first-of-type > a {
+.subheader > a {
   position: absolute;
   height: 36px;
   width: 96px;
@@ -2446,18 +2566,61 @@ select {
   line-height: 1;
   font-size: 1.6rem;
 }
-@media (max-width: 767px) {
-  #scroller > div:first-of-type > a {
-    font-size: 1.2rem;
-    width: 62px;
-  }
-}
-#scroller > div:first-of-type > a:first-of-type {
+.subheader > a:first-of-type {
   left: 24px;
 }
-#scroller > div:first-of-type > a:nth-of-type(2) {
-  right: 160px;
+.subheader > a:nth-of-type(2) {
+  right: 128px;
 }
-#scroller > div:first-of-type > a:last-of-type {
+.subheader > a:last-of-type {
   right: 24px;
+}
+@media (max-width: 767px) {
+  .subheader > a {
+    font-size: 1.2rem;
+    width: 62px;
+    height: 24px;
+    line-height: 0.1rem;
+    padding-left: 0;
+    padding-right: 0;
+  }
+  .subheader > a:nth-of-type(2) {
+    right: 90px;
+  }
+  .subheader > a:last-of-type {
+    right: 24px;
+  }
+}
+@media (max-width: 497px) {
+  .subheader > a {
+    font-size: 1.2rem;
+    width: 62px;
+    height: 24px;
+    line-height: 0.1rem;
+    padding-left: 0;
+    padding-right: 0;
+  }
+  .subheader > a:nth-of-type(2) {
+    right: 24px;
+    top: 5px;
+    margin: 0;
+  }
+  .subheader > a:last-of-type {
+    right: 24px;
+    margin: 0;
+    top: 37px;
+  }
+}
+@media (max-width: 767px) {
+  .st-pusher {
+    font-size: 1.4rem;
+  }
+}
+@media (max-width: 497px) {
+  .st-pusher {
+    font-size: 1rem;
+  }
+}
+.doubleHead {
+  height: 128px !important;
 }

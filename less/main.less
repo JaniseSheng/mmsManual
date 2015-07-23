@@ -412,6 +412,7 @@ input[type="date"]:before{
   padding-bottom: 24px;
 }
 .st-pusher {
+  overflow-x: hidden;
   position: relative;
   min-height: 100%;
   -webkit-transition: -webkit-transform 0.5s;
@@ -1161,7 +1162,7 @@ i {
 #list a {
   position: relative;
   display: block;
-  padding: 12px 24px 12px 64px;
+  padding: 12px 24px 12px 24px;
   -webkit-transition: background 0.3s;
   transition: background 0.3s;
 }
@@ -1212,10 +1213,10 @@ i {
 #list li.more-content:after {
   content: "";
   height: 1px;
-  width: 100%;
+  right: 24px;
   position: absolute;
   bottom: 0;
-  left: 64px;
+  left: 24px;
   background-color: #bdc3c7;
 }
 #sub-list li.more-content:last-child:after,
@@ -1224,11 +1225,11 @@ i {
 }
 #sub-list li.more-content > i,
 #list li.more-content > i {
-  font-size: 3.6rem;
-  height: 3.6rem;
-  color: #bdc3c7;
+  font-size: 2.4rem;
+  height: 2.4rem;
+  color: #0f89c7;
   position: absolute;
-  right: 12px;
+  right: 24px;
   top: 0;
   bottom: 0;
   margin: auto 0;
@@ -2469,77 +2470,18 @@ select{
 }
 
 //---------------------------------------------MMS系统-------------------------------------------------------
-#st-trigger-effects > .w-container > a{
-  position: absolute;
-  height: 36px;
-  width: 96px;
-  left: 24px;
-  top: 0;
-  bottom: 0;
-  margin: auto 0;
-  border: 0;
-  outline: 0;
-  outline-style: none;
-  outline-width: 0;
-  -webkit-user-select: none;
-  -khtml-user-select: none;
-  -moz-user-select: none;
-  -ms-user-select: none;
-  user-select: none;
-  color: #ffffff;
-  line-height: 1;
-  font-size: 1.6rem;
-  @media (max-width: 767px) {
-    font-size: 1.2rem;
-    width: 62px;
-
+#st-trigger-effects {
+  span {
+    @media (max-width: 767px) {
+      font-size: 1.4rem;
+    }
   }
-}
-
-#menuInfoBox{
-  position: absolute;
-  width: 60%;
-  height: 40%;
-  top: 20px;
-  right: 0;
-  left: 0;
-  margin: 0 auto;
-  background-color: #003300;
-  border: 1px solid cadetblue;
-  -webkit-border-radius: 5px;
-  -moz-border-radius: 5px;
-  border-radius: 5px;
-  color:white;
-  padding: 24px;
-  @media (max-width: 767px) {
-    height: 200px;
-  }
-
-  @media (max-width: 481px) {
-    height: 150px;
-  }
-  >p{
-    text-align: center;
-  }
-
-}
-
-#scroller > div{
-  &:first-of-type{
-    position: relative;
-    top: 0;
-    left: 0;
-    right: 0;
-    height: 64px;
-    text-align: center;
-    font-size: 1.8rem;
-    color: #ffffff;
-    background-color: #918a8e;
-    z-index: 99;
-    > a {
+  > .w-container{
+    > a{
       position: absolute;
       height: 36px;
       width: 96px;
+      left: 24px;
       top: 0;
       bottom: 0;
       margin: auto 0;
@@ -2558,17 +2500,222 @@ select{
       @media (max-width: 767px) {
         font-size: 1.2rem;
         width: 62px;
+        height: 24px;
+        line-height: 0.1rem;
+        padding-left: 0;
+        padding-right: 0;
+      }
+    }
+  }
+}
 
+
+#menuInfoBox ,#commitInfoBox{
+  text-wrap: normal;
+  word-wrap: break-word;
+  word-break: break-all;
+  position: absolute;
+  width: 60%;
+  top: 20px;
+  right: 0;
+  left: 0;
+  margin: 0 auto;
+  background-color: #003300;
+  border: 1px solid cadetblue;
+  -webkit-border-radius: 5px;
+  -moz-border-radius: 5px;
+  border-radius: 5px;
+  color:white;
+  padding: 24px;
+  span,p{
+    text-align: center;
+  @media (max-width: 767px) {
+    font-size: 1.4rem;
+  }
+    @media (max-width: 497px) {
+      font-size: 1rem;
+    }
+  }
+
+}
+
+#menuInfoBox{
+  @media (max-width: 767px) {
+    max-height: 180px;
+    overflow-y: scroll;
+  }
+}
+
+#commitInfoBox{
+  height:400px;
+  @media (max-width: 767px) {
+    width: 70%;
+    height: 280px;
+  }
+  > div{
+    position: absolute;
+    display: inline-block;
+    right: 24px;
+    left: 24px;
+    &:first-of-type{
+      height: 24px;
+      padding-left: 48px;
+      >span{
+        position: absolute;
+        left: 0;
       }
-      &:first-of-type{
-        left: 24px;
+      > input{
+        width: 100%;
+        height: 24px;
+        @media (max-width: 767px) {
+          font-size: 1.4rem;
+        }
+        @media (max-width: 497px) {
+          font-size: 1rem;
+        }
       }
+      }
+    &:nth-of-type(2){
+      top: 64px;
+      height: 24px;
+      >textarea{
+        height: 214px;
+        max-height: 214px;
+        @media (max-width: 767px) {
+          height: 96px;
+          max-height: 96px;
+          font-size: 1.4rem;
+        }
+        @media (max-width: 497px) {
+          font-size: 1rem;
+        }
+      }
+    }
+    }
+  > a{
+    position: absolute;
+    left: 24px;
+    right: 24px;
+    bottom: 24px;
+  }
+}
+#scroller {
+  text-wrap: normal;
+  word-wrap: break-word;
+  word-break: break-all;
+  > .contentTitle{
+    position: relative;
+    width: 100%;
+    display: inline-block;
+    padding: 12px 0 12px 24px;
+    > i{
+      position: absolute;
+      height: 15px;
+      left: 0;
+      top: 0;
+      bottom: 0;
+      margin: auto 0;
+      color: #218bd4;
+    }
+  }
+}
+
+.subheader {
+  margin-left: auto;
+  margin-right: auto;
+  max-width: 767px;
+  position: relative;
+  height: 64px;
+  &:before{
+    left: -50%;
+    content: "";
+    width: 200%;
+    height: 64px;
+    position: absolute;
+    background-color: #ffa2bf;
+  }
+  > #subNavInfo{
+    position: absolute;
+    left: 0;
+    right: 0;
+    margin: 0 auto;
+  }
+
+  > a {
+    position: absolute;
+    height: 36px;
+    width: 96px;
+    top: 0;
+    bottom: 0;
+    margin: auto 0;
+    border: 0;
+    outline: 0;
+    outline-style: none;
+    outline-width: 0;
+    -webkit-user-select: none;
+    -khtml-user-select: none;
+    -moz-user-select: none;
+    -ms-user-select: none;
+    user-select: none;
+    color: #ffffff;
+    line-height: 1;
+    font-size: 1.6rem;
+    &:first-of-type{
+      left: 24px;
+    }
+    &:nth-of-type(2){
+      right: 128px;
+    }
+    &:last-of-type{
+      right: 24px;
+    }
+    @media (max-width: 767px) {
+      font-size: 1.2rem;
+      width: 62px;
+      height: 24px;
+      line-height: 0.1rem;
+      padding-left: 0;
+      padding-right: 0;
       &:nth-of-type(2){
-        right: 160px;
+        right: 90px;
       }
       &:last-of-type{
         right: 24px;
       }
+
     }
+    @media (max-width: 497px) {
+      font-size: 1.2rem;
+      width: 62px;
+      height: 24px;
+      line-height: 0.1rem;
+      padding-left: 0;
+      padding-right: 0;
+      &:nth-of-type(2){
+        right: 24px;
+        top: 5px;
+        margin: 0;
+      }
+      &:last-of-type{
+        right: 24px;
+        margin: 0;
+        top: 37px;
+      }
+
+    }
+
   }
+}
+
+.st-pusher{
+  @media (max-width: 767px) {
+    font-size: 1.4rem;
+  }
+  @media (max-width: 497px) {
+    font-size: 1rem;
+  }
+}
+
+.doubleHead{
+  height: 128px !important;
 }

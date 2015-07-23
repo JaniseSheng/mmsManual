@@ -1,54 +1,65 @@
-
 <html>
-  <head>
-        <title>我的地盘</title>
-        <meta http-equiv="Content-Type" charset="utf-8" name="viewport" content="width=device-width, height=device-height, initial-scale=1, minimum-scale=1, maximum-scale=1"/>
-        <link rel="stylesheet" type="text/css" href="less/main.css"/>
-        <link rel="stylesheet" type="text/css" href="less/animate.min.css"/>
-        <link rel="stylesheet" type="text/css" href="less/normalize.css"/>
-        <link rel="shortcut icon" type="image/x-icon" href="images/icon32.gif"/>
-        <link rel="apple-touch-icon" type="image/x-icon" href="images/icon256.gif"/>
-        <script type="text/javascript" src="js/jquery.min.js"></script>
-        <script type="text/javascript" src="js/modernizr.js"></script>
-        <script type="application/javascript" src="js/fastclick.js"></script>
-        <script type="text/javascript" src="js/iscroll.js"></script>
-        <script src="js/index.js"></script>
-  </head>
-  <body>
-    <div id="st-container" class="st-container">
-      <div class="st-pusher">
-        <div id="st-trigger-effects">
-          <div class="w-container header">
-              <button class="button green">返回首页</button><span>中国电信MSS系统帮助</span>
-          </div>
+<head>
+    <title>我的地盘</title>
+    <meta http-equiv="Content-Type" charset="utf-8" name="viewport" content="width=device-width, height=device-height, initial-scale=1, minimum-scale=1, maximum-scale=1"/>
+    <link rel="stylesheet" type="text/css" href="less/main.css"/>
+    <link rel="stylesheet" type="text/css" href="less/animate.min.css"/>
+    <link rel="stylesheet" type="text/css" href="less/normalize.css"/>
+    <link rel="shortcut icon" type="image/x-icon" href="images/icon32.gif"/>
+    <link rel="apple-touch-icon" type="image/x-icon" href="images/icon256.gif"/>
+    <script type="text/javascript" src="js/jquery.min.js"></script>
+    <script type="text/javascript" src="js/modernizr.js"></script>
+    <script type="application/javascript" src="js/fastclick.js"></script>
+    <script type="text/javascript" src="js/iscroll.js"></script>
+</head>
+<body>
+<div id="st-container" class="st-container">
+    <div class="st-pusher">
+        <div id="st-trigger-effects" class="doubleHead">
+            <div class="w-container header">
+                <a class="button green">返回首页</a><span>中国电信MSS系统帮助</span>
+            </div>
+            <div class="subheader">
+                <a class="button green">返回</a>
+                <span id="subNavInfo">责任中心报账</span>
+                <a class="button green">下一页</a>
+                <a class="button green">反馈</a>
+            </div>
         </div>
         <div id="wrapper" class="container">
-          <div id="scroller" class="w-container clearfix">
-              <div><a class="button green">返回</a><a class="button green">下一页</a><a class="button green">反馈</a></div>
-              <p class="subHead">发起经济事项报账流程</p>
-            <ul class="pic-content">
-                <li><span>替换文字</span>
-                    <div><img src="images/Original.jpg"/></div>
-                </li>
-                <li><span>替换文字</span>
-                    <div><img src="images/Original.jpg"/></div>
-                </li>
-                <li><span>替换文字</span>
-                    <div><img src="images/Original.jpg"/></div>
-                </li>
-                <li><span>替换文字</span>
-                    <div><img src="images/Original.jpg"/></div>
-                </li>
-                <li><span>替换文字</span>
-                    <div><img src="images/Original.jpg"/></div>
-                </li>
-            </ul>
-              <div id="commitInfoBox">
-                  <p style="color: red">描述......</p>
-              </div>
-          </div>
+            <div id="scroller" class="w-container clearfix">
+                <div class="contentTitle"><i class="icon-ic_star_24px"></i>
+                    <p class="contentTitleInfo">发起经济事项报账流程</p></div>
+                <ul class="pic-content">
+                    <li>
+                        <span>1、报账员登录系统，选择“我的工作－新建流程－经济事项”</span>
+
+                        <div><img src="images/Original.jpg"/></div>
+                    </li>
+                    <li><span>2、如果当前报账员存在多个可报账组织、账套，要求报账员先选择合适的报账组织、账套并点击，再进行报账</span>
+
+                        <div><img src="images/Original.jpg"/></div>
+                    </li>
+                    <li><span>3、选择账套及组织，系统会展示该部门所有可报账的经济事项。用户也可以在左上角进行组织的切换</span>
+
+                        <div><img src="images/Original.jpg"/></div>
+                        <span>可以在上方进行经济事项的搜索。可以点击经济事项名称后 的图标查看经济事项示例或是收藏经济事项到收藏夹</span>
+                    </li>
+                </ul>
+                <div id="commitInfoBox">
+                    <div>
+                        <span>标题:</span>
+                        <input type="text" name="send" maxlength="20">
+                    </div>
+                    <div>
+                        <span>内容:</span>
+                        <textarea name="content" placeholder="备注:"></textarea>
+                    </div>
+                    <a class="button purple">提交</a>
+                </div>
+            </div>
         </div>
-      </div>
     </div>
-  </body>
+</div>
+</body>
 </html>
