@@ -1,12 +1,12 @@
 <div id="st-trigger-effects" class="doubleHead">
     <div class="w-container header">
-        <a class="button green">返回首页</a><span>中国电信MSS系统帮助</span>
+        <a class="button green back" pagename="page1">返回首页</a><span>中国电信MSS系统帮助</span>
     </div>
     <div class="subheader">
-        <a class="button gray">返回</a>
+        <a class="button gray back" pagename="page2_1">返回</a>
         <span id="subNavInfo">责任中心报账</span>
-        <a class="button gray">下一页</a>
-        <a class="button gray">反馈</a>
+        <a class="button gray subNext" subpagename="1">下一页</a>
+        <a class="button gray commintClick">反馈</a>
     </div>
 </div>
 <div id="wrapper" class="container">
@@ -26,4 +26,9 @@
             </li>
         </ul>
     </div>
+    <div id="fankuiBox"></div>
+    <div class="pageMask"></div>
 </div>
+<script>
+    animate_index.animate_next();
+</script>

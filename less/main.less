@@ -2254,18 +2254,6 @@ i.icon_xybk_14{
     }
   }
 }
-#scroller .details .store_head_img , #scroller>ul>li>div{
-  background-image: url("../images/bglogo.jpg");
-  -moz-background-image: url("../images/bglogo.jpg");
-  -webkit-background-image: url("../images/bglogo.jpg");
-  -o-background-image: url("../images/bglogo.jpg");
-  background-position: center;
-  background-repeat: no-repeat;
-  background-size: cover;
-  -moz-background-size: cover;
-  -webkit-background-size: cover;
-  -o-background-size: cover;
-}
 
 #scroller{
   &>.details .store_head_img img{
@@ -2514,9 +2502,9 @@ select{
   text-wrap: normal;
   word-wrap: break-word;
   word-break: break-all;
-  position: absolute;
+  position: fixed;
   width: 60%;
-  top: 20px;
+  top: 140px;
   right: 0;
   left: 0;
   margin: 0 auto;
@@ -2527,6 +2515,7 @@ select{
   border-radius: 5px;
   color:white;
   padding: 24px;
+  z-index: 100;
   span,p{
     text-align: center;
   @media (max-width: 767px) {
@@ -2540,6 +2529,8 @@ select{
 }
 
 #menuInfoBox{
+  top:-500px;
+  .transition(top 500ms ease);
   @media (max-width: 767px) {
     max-height: 180px;
     overflow-y: scroll;
@@ -2627,12 +2618,17 @@ select{
   position: relative;
   height: 64px;
   &:before{
-    left: -50%;
+    z-index: -1;
+    left: 0%;
     content: "";
-    width: 200%;
+    width: 100%;
     height: 64px;
     position: absolute;
     background-color: #ffa2bf;
+    @media (min-width: 767px) {
+      left: -50%;
+      width: 200%;
+    }
   }
   > #subNavInfo{
     position: absolute;
@@ -2642,6 +2638,7 @@ select{
   }
 
   > a {
+    z-index: 100;
     position: absolute;
     height: 36px;
     width: 96px;
@@ -2718,4 +2715,67 @@ select{
 
 .doubleHead{
   height: 128px !important;
+}
+
+.pageMask{
+  position: fixed;
+  width: 0;
+  height: 100%;
+  left: 0;
+  top: 128px;
+  z-index: 1;
+}
+
+#wrapper{
+  top: 128px;
+  bottom: 0;
+  overflow-y: scroll;
+  position: absolute;
+  left: 0;
+  right: 0;
+  margin: 0 auto;
+}
+
+
+
+//----------------------transition------------------
+//简写属性，用于在一个属性中设置四个过渡属性。
+.transition(@args){
+  transition: @args;
+  -webkit-transition: @args;
+  -moz-transition: @args;
+  -o-transition: @args;
+  -ms-transition: @args;
+}
+//规定应用过渡的 CSS 属性的名称。 none:没有属性会获得过渡效果 / all:所有属性都将获得过渡效果 / property:定义应用过渡效果的 CSS 属性名称列表，列表以逗号分隔。
+.transition-property(@args){
+  transition-property :@args;
+  -webkit-transition-property :@args;
+  -moz-transition-property :@args;
+  -o-transition-property :@args;
+  -ms-transition-property :@args;
+}
+//定义过渡效果花费的时间。
+.transition-duration(@args){
+  transition-duration : @args;
+  -webkit-transition-duration : @args;
+  -moz-transition-duration : @args;
+  -o-transition-duration : @args;
+  -ms-transition-duration : @args;
+}
+//规定过渡效果的时间曲线。
+.transition-timing-function(@args){
+  transition-timing-function: @args;
+  -webkit-transition-timing-function: @args;
+  -moz-transition-timing-function: @args;
+  -o-transition-timing-function: @args;
+  -ms-transition-timing-function: @args;
+}
+//规定过渡效果何时开始。
+.transition-delay(@args){
+  transition-delay:@args;
+  -webkit-transition-delay:@args;
+  -moz-transition-delay:@args;
+  -o-transition-delay:@args;
+  -ms-transition-delay:@args;
 }

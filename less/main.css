@@ -2184,19 +2184,6 @@ i.icon_xybk_14 {
   position: relative;
   display: inline-block;
 }
-#scroller .details .store_head_img,
-#scroller > ul > li > div {
-  background-image: url("../images/bglogo.jpg");
-  -moz-background-image: url("../images/bglogo.jpg");
-  -webkit-background-image: url("../images/bglogo.jpg");
-  -o-background-image: url("../images/bglogo.jpg");
-  background-position: center;
-  background-repeat: no-repeat;
-  background-size: cover;
-  -moz-background-size: cover;
-  -webkit-background-size: cover;
-  -o-background-size: cover;
-}
 #scroller > .details .store_head_img img {
   min-height: 230px;
 }
@@ -2400,9 +2387,9 @@ select {
   text-wrap: normal;
   word-wrap: break-word;
   word-break: break-all;
-  position: absolute;
+  position: fixed;
   width: 60%;
-  top: 20px;
+  top: 140px;
   right: 0;
   left: 0;
   margin: 0 auto;
@@ -2413,6 +2400,7 @@ select {
   border-radius: 5px;
   color: white;
   padding: 24px;
+  z-index: 100;
 }
 #menuInfoBox span,
 #commitInfoBox span,
@@ -2435,6 +2423,14 @@ select {
   #commitInfoBox p {
     font-size: 1rem;
   }
+}
+#menuInfoBox {
+  top: -500px;
+  transition: top 500ms ease;
+  -webkit-transition: top 500ms ease;
+  -moz-transition: top 500ms ease;
+  -o-transition: top 500ms ease;
+  -ms-transition: top 500ms ease;
 }
 @media (max-width: 767px) {
   #menuInfoBox {
@@ -2533,12 +2529,19 @@ select {
   height: 64px;
 }
 .subheader:before {
-  left: -50%;
+  z-index: -1;
+  left: 0%;
   content: "";
-  width: 200%;
+  width: 100%;
   height: 64px;
   position: absolute;
   background-color: #ffa2bf;
+}
+@media (min-width: 767px) {
+  .subheader:before {
+    left: -50%;
+    width: 200%;
+  }
 }
 .subheader > #subNavInfo {
   position: absolute;
@@ -2547,6 +2550,7 @@ select {
   margin: 0 auto;
 }
 .subheader > a {
+  z-index: 100;
   position: absolute;
   height: 36px;
   width: 96px;
@@ -2623,4 +2627,21 @@ select {
 }
 .doubleHead {
   height: 128px !important;
+}
+.pageMask {
+  position: fixed;
+  width: 0;
+  height: 100%;
+  left: 0;
+  top: 128px;
+  z-index: 1;
+}
+#wrapper {
+  top: 128px;
+  bottom: 0;
+  overflow-y: scroll;
+  position: absolute;
+  left: 0;
+  right: 0;
+  margin: 0 auto;
 }
