@@ -38,19 +38,16 @@ var ctMMsLoadEvent = (function(){
 var ctMMsCliskEvent = (function(){
     //第一页js事件
     var page01Event = function (){
-
         pageTips(".icon-approximately","#menuInfoBox",page01_tips_info);
         clickNextPage(".next",".back");
     }
     //第二页js事件
     var page02Event = function (){
-
         pageTips(".icon-approximately","#menuInfoBox",page02_tips_info);
         clickNextPage(".next",".back");
     }
     //第三页js事件
     var page03Event = function (){
-
         clickNextPage(".next",".back");
         $(".commintClick").click(function(){
             $(".pageMask").css("width","100%");
@@ -102,19 +99,20 @@ var ctMMsCliskEvent = (function(){
         $(nextname).click(function(){
             var pageInfo = $(this).attr("pagename");
            if(pageInfo=="page2_1"){
-               ctMMsLoadEvent.loadpage2_1();
+               animate_index.animate_next(ctMMsLoadEvent.loadpage2_1);
            }
             if(pageInfo=="page3_1"){
-                ctMMsLoadEvent.loadpage3_1();
+                animate_index.animate_next(ctMMsLoadEvent.loadpage3_1)
+
             }
         });
         $(backname).click(function(){
             var pageInfo = $(this).attr("pagename");
             if(pageInfo=="page1"){
-                ctMMsLoadEvent.loadpage1();
+                animate_index.animate_back(ctMMsLoadEvent.loadpage1);
             }
             if(pageInfo=="page2_1"){
-                ctMMsLoadEvent.loadpage2_1();
+                animate_index.animate_back( ctMMsLoadEvent.loadpage2_1);
             }
         });
     }
@@ -128,7 +126,9 @@ var ctMMsCliskEvent = (function(){
                 ctMMsLoadEvent.loadSubpage3_1("tpl/tp_mms03_list01.html")
             }
             if(pageInfo=="2"){
+
                 ctMMsLoadEvent.loadSubpage3_1("tpl/tp_mms03_list02.html")
+
             }
             if(pageInfo=="3"){
                 ctMMsLoadEvent.loadSubpage3_1("tpl/tp_mms03_list03.html")
@@ -149,6 +149,7 @@ var ctMMsCliskEvent = (function(){
             if(pageInfo<=1)pageInfo=1;
         });
     }
+
     return{
         page01Event:page01Event,
         page02Event:page02Event,
@@ -159,34 +160,21 @@ var ctMMsCliskEvent = (function(){
 
 
 //切换动画
+
 animate_index={
-    fadeOutUp : 'animated fadeOutUpBig',
-    fadeInDown : 'animated fadeInDown',
     fadeOutLeft : 'animated fadeOutLeftBig',
     fadeOutRight : 'animated fadeOutRightBig',
-    fadeInRight : 'animated fadeInRight',
-    fadeInLeft : 'animated fadeInLeft',
-    fadeOutDown : 'animated fadeOutDownBig',
-    fadeInUp : 'animated fadeInUp',
-    slideInUp : 'animated slideInUp',
-    slideOutDown : 'animated slideOutDown',
     animationEnd : 'webkitAnimationEnd mozAnimationEnd MSAnimationEnd oanimationend animationend',
 
-    animate_next : function(){
+    animate_next : function(callback){
         $('#st-trigger-effects,.container').addClass(animate_index.fadeOutLeft).one(animate_index.animationEnd, function () {
-            $(this).removeClass(animate_index.fadeOutLeft);
-            $(this).addClass(animate_index.fadeInRight).one(animate_index.animationEnd, function () {
-                $(this).removeClass(animate_index.fadeInRight);
-            });
+            callback();
         });
     },
 
-    animate_back : function(){
+    animate_back : function(callback){
         $('#st-trigger-effects,.container').addClass(animate_index.fadeOutRight).one(animate_index.animationEnd, function () {
-            $(this).removeClass(animate_index.fadeOutRight);
-            $(this).addClass(animate_index.fadeInLeft).one(animate_index.animationEnd, function () {
-                $(this).removeClass(animate_index.fadeInLeft);
-            });
+            callback();
         });
     }
 }

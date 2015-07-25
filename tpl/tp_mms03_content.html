@@ -3,10 +3,12 @@
         <a class="button green back" pagename="page1">返回首页</a><span>中国电信MSS系统帮助</span>
     </div>
     <div class="subheader">
-        <a class="button gray back" pagename="page2_1">返回</a>
-        <span id="subNavInfo">责任中心报账</span>
-        <a class="button gray subNext" subpagename="1">下一页</a>
-        <a class="button gray commintClick">反馈</a>
+       <div>
+           <a class="button gray back" pagename="page2_1">返回</a>
+           <span id="subNavInfo">责任中心报账</span>
+           <a class="button gray subNext" subpagename="1">下一页</a>
+           <a class="button gray commintClick">反馈</a>
+       </div>
     </div>
 </div>
 <div id="wrapper" class="container">
@@ -29,6 +31,7 @@
     <div id="fankuiBox"></div>
     <div class="pageMask"></div>
 </div>
+
 <script>
-    animate_index.animate_next();
+    $('#st-trigger-effects,.container').removeClass(animate_index.fadeOutLeft,animate_index.fadeOutRight);
 </script>

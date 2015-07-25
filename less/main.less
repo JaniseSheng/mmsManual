@@ -564,6 +564,7 @@ input[type="date"]:before{
   padding-left: 264px;
 }
 #st-trigger-effects {
+  .transition(all 500ms ease);
   position: relative;
   top: 0;
   left: 0;
@@ -2497,6 +2498,12 @@ select{
   }
 }
 
+.container{
+  left: 0;
+  position: relative;
+  .transition(all 500ms ease);
+}
+
 
 #menuInfoBox ,#commitInfoBox{
   text-wrap: normal;
@@ -2508,7 +2515,7 @@ select{
   right: 0;
   left: 0;
   margin: 0 auto;
-  background-color: #003300;
+  background-color: #5D5C5C;
   border: 1px solid cadetblue;
   -webkit-border-radius: 5px;
   -moz-border-radius: 5px;
@@ -2614,7 +2621,6 @@ select{
 .subheader {
   margin-left: auto;
   margin-right: auto;
-  max-width: 767px;
   position: relative;
   height: 64px;
   &:before{
@@ -2625,82 +2631,85 @@ select{
     height: 64px;
     position: absolute;
     background-color: #ffa2bf;
-    @media (min-width: 767px) {
-      left: -50%;
-      width: 200%;
+  }
+  >div{
+    margin-left: auto;
+    margin-right: auto;
+    max-width: 767px;
+    position: relative;
+    height: 64px;
+    > #subNavInfo{
+      position: absolute;
+      left: 0;
+      right: 0;
+      margin: 0 auto;
     }
-  }
-  > #subNavInfo{
-    position: absolute;
-    left: 0;
-    right: 0;
-    margin: 0 auto;
-  }
 
-  > a {
-    z-index: 100;
-    position: absolute;
-    height: 36px;
-    width: 96px;
-    top: 0;
-    bottom: 0;
-    margin: auto 0;
-    border: 0;
-    outline: 0;
-    outline-style: none;
-    outline-width: 0;
-    -webkit-user-select: none;
-    -khtml-user-select: none;
-    -moz-user-select: none;
-    -ms-user-select: none;
-    user-select: none;
-    color: #ffffff;
-    line-height: 1;
-    font-size: 1.6rem;
-    &:first-of-type{
-      left: 24px;
-    }
-    &:nth-of-type(2){
-      right: 128px;
-    }
-    &:last-of-type{
-      right: 24px;
-    }
-    @media (max-width: 767px) {
-      font-size: 1.2rem;
-      width: 62px;
-      height: 24px;
-      line-height: 0.1rem;
-      padding-left: 0;
-      padding-right: 0;
+    > a {
+      z-index: 100;
+      position: absolute;
+      height: 36px;
+      width: 96px;
+      top: 0;
+      bottom: 0;
+      margin: auto 0;
+      border: 0;
+      outline: 0;
+      outline-style: none;
+      outline-width: 0;
+      -webkit-user-select: none;
+      -khtml-user-select: none;
+      -moz-user-select: none;
+      -ms-user-select: none;
+      user-select: none;
+      color: #ffffff;
+      line-height: 1;
+      font-size: 1.6rem;
+      &:first-of-type{
+        left: 24px;
+      }
       &:nth-of-type(2){
-        right: 90px;
+        right: 128px;
       }
       &:last-of-type{
         right: 24px;
       }
+      @media (max-width: 767px) {
+        font-size: 1.2rem;
+        width: 62px;
+        height: 24px;
+        line-height: 0.1rem;
+        padding-left: 0;
+        padding-right: 0;
+        &:nth-of-type(2){
+          right: 90px;
+        }
+        &:last-of-type{
+          right: 24px;
+        }
+
+      }
+      @media (max-width: 497px) {
+        font-size: 1.2rem;
+        width: 62px;
+        height: 24px;
+        line-height: 0.1rem;
+        padding-left: 0;
+        padding-right: 0;
+        &:nth-of-type(2){
+          right: 24px;
+          top: 5px;
+          margin: 0;
+        }
+        &:last-of-type{
+          right: 24px;
+          margin: 0;
+          top: 37px;
+        }
+
+      }
 
     }
-    @media (max-width: 497px) {
-      font-size: 1.2rem;
-      width: 62px;
-      height: 24px;
-      line-height: 0.1rem;
-      padding-left: 0;
-      padding-right: 0;
-      &:nth-of-type(2){
-        right: 24px;
-        top: 5px;
-        margin: 0;
-      }
-      &:last-of-type{
-        right: 24px;
-        margin: 0;
-        top: 37px;
-      }
-
-    }
-
   }
 }
 
@@ -2778,4 +2787,18 @@ select{
   -moz-transition-delay:@args;
   -o-transition-delay:@args;
   -ms-transition-delay:@args;
+}
+
+.animateLeftThis{
+   left:-100% !important;
+ }
+.animateLeftObject{
+  left:0 !important;
+}
+
+.animateRightThis{
+  left:100% !important;
+}
+.animateRightObject{
+  left:0 !important;
 }

@@ -559,6 +559,11 @@ input[type="date"]:before {
   padding-left: 264px;
 }
 #st-trigger-effects {
+  transition: all 500ms ease;
+  -webkit-transition: all 500ms ease;
+  -moz-transition: all 500ms ease;
+  -o-transition: all 500ms ease;
+  -ms-transition: all 500ms ease;
   position: relative;
   top: 0;
   left: 0;
@@ -2382,6 +2387,15 @@ select {
     padding-right: 0;
   }
 }
+.container {
+  left: 0;
+  position: relative;
+  transition: all 500ms ease;
+  -webkit-transition: all 500ms ease;
+  -moz-transition: all 500ms ease;
+  -o-transition: all 500ms ease;
+  -ms-transition: all 500ms ease;
+}
 #menuInfoBox,
 #commitInfoBox {
   text-wrap: normal;
@@ -2393,7 +2407,7 @@ select {
   right: 0;
   left: 0;
   margin: 0 auto;
-  background-color: #003300;
+  background-color: #5D5C5C;
   border: 1px solid cadetblue;
   -webkit-border-radius: 5px;
   -moz-border-radius: 5px;
@@ -2524,7 +2538,6 @@ select {
 .subheader {
   margin-left: auto;
   margin-right: auto;
-  max-width: 767px;
   position: relative;
   height: 64px;
 }
@@ -2537,19 +2550,20 @@ select {
   position: absolute;
   background-color: #ffa2bf;
 }
-@media (min-width: 767px) {
-  .subheader:before {
-    left: -50%;
-    width: 200%;
-  }
+.subheader > div {
+  margin-left: auto;
+  margin-right: auto;
+  max-width: 767px;
+  position: relative;
+  height: 64px;
 }
-.subheader > #subNavInfo {
+.subheader > div > #subNavInfo {
   position: absolute;
   left: 0;
   right: 0;
   margin: 0 auto;
 }
-.subheader > a {
+.subheader > div > a {
   z-index: 100;
   position: absolute;
   height: 36px;
@@ -2570,17 +2584,17 @@ select {
   line-height: 1;
   font-size: 1.6rem;
 }
-.subheader > a:first-of-type {
+.subheader > div > a:first-of-type {
   left: 24px;
 }
-.subheader > a:nth-of-type(2) {
+.subheader > div > a:nth-of-type(2) {
   right: 128px;
 }
-.subheader > a:last-of-type {
+.subheader > div > a:last-of-type {
   right: 24px;
 }
 @media (max-width: 767px) {
-  .subheader > a {
+  .subheader > div > a {
     font-size: 1.2rem;
     width: 62px;
     height: 24px;
@@ -2588,15 +2602,15 @@ select {
     padding-left: 0;
     padding-right: 0;
   }
-  .subheader > a:nth-of-type(2) {
+  .subheader > div > a:nth-of-type(2) {
     right: 90px;
   }
-  .subheader > a:last-of-type {
+  .subheader > div > a:last-of-type {
     right: 24px;
   }
 }
 @media (max-width: 497px) {
-  .subheader > a {
+  .subheader > div > a {
     font-size: 1.2rem;
     width: 62px;
     height: 24px;
@@ -2604,12 +2618,12 @@ select {
     padding-left: 0;
     padding-right: 0;
   }
-  .subheader > a:nth-of-type(2) {
+  .subheader > div > a:nth-of-type(2) {
     right: 24px;
     top: 5px;
     margin: 0;
   }
-  .subheader > a:last-of-type {
+  .subheader > div > a:last-of-type {
     right: 24px;
     margin: 0;
     top: 37px;
@@ -2644,4 +2658,16 @@ select {
   left: 0;
   right: 0;
   margin: 0 auto;
+}
+.animateLeftThis {
+  left: -100% !important;
+}
+.animateLeftObject {
+  left: 0 !important;
+}
+.animateRightThis {
+  left: 100% !important;
+}
+.animateRightObject {
+  left: 0 !important;
 }
