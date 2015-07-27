@@ -49,12 +49,20 @@
                 <p>流程处理</p></a><i class="icon-approximately"></i>
             </li>
         </ul>
-        <div id="menuInfoBox">
-            <p>12313131313131313131313131313131313131313131313131312312321831231283081203801983018301838103821830183081......</p>
-        </div>
+
     </div>
 </div>
-
-<script>
-    $('#st-trigger-effects,.container').removeClass(animate_index.fadeOutLeft,animate_index.fadeOutRight);
-</script>
+<div id="menuInfoBox">
+    <p>12313131313131313131313131313131313131313131313131312312321831231283081203801983018301838103821830183081......</p>
+</div>
+<!--<script>
+    if(animteDirection=="DirLeft"){
+        $('#st-trigger-effects,.container').addClass(animate_index.fadeInRight).one(animate_index.animationEnd, function () {
+            $(this).removeClass(animate_index.fadeInRight);
+        });
+    }else{
+        $('#st-trigger-effects,.container').addClass(animate_index.fadeInLeft).one(animate_index.animationEnd, function () {
+            $(this).removeClass(animate_index.fadeInLeft);
+        });
+    }
+</script>-->

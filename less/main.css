@@ -2450,7 +2450,7 @@ select {
 @media (max-width: 767px) {
   #menuInfoBox {
     max-height: 180px;
-    overflow-y: scroll;
+    overflow-y: auto;
   }
 }
 #commitInfoBox {

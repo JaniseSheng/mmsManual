@@ -17,10 +17,18 @@
             $("#scroller").load("tpl/tp_mms03_list01.html");
         </script>
     </div>
-    <div id="fankuiBox"></div>
-    <div class="pageMask"></div>
-</div>
 
-<script>
-    $('#st-trigger-effects,.container').removeClass(animate_index.fadeOutLeft,animate_index.fadeOutRight);
-</script>
+</div>
+<div id="fankuiBox"></div>
+<div class="pageMask"></div>
+<!--<script>
+    if(animteDirection=="DirLeft"){
+        $('#st-trigger-effects,.container').addClass(animate_index.fadeInRight).one(animate_index.animationEnd, function () {
+            $(this).removeClass(animate_index.fadeInRight);
+        });
+    }else{
+        $('#st-trigger-effects,.container').addClass(animate_index.fadeInLeft).one(animate_index.animationEnd, function () {
+            $(this).removeClass(animate_index.fadeInLeft);
+        });
+    }
+</script>-->

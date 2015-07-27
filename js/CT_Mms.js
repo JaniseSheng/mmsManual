@@ -11,7 +11,6 @@ $(document).ready(function () {
     ctMMsLoadEvent.loadpage1();
 });
 
-
 var ctMMsLoadEvent = (function(){
     var loadpage1 = function () {
         $("#st-container .st-pusher").load("tpl/tp_mms01_content.html",ctMMsCliskEvent.page01Event);
@@ -34,17 +33,19 @@ var ctMMsLoadEvent = (function(){
     }
 })();
 
-
+var animteDirection ="DirLeft"; //设置当前fade等方向
 var ctMMsCliskEvent = (function(){
     //第一页js事件
     var page01Event = function (){
         pageTips(".icon-approximately","#menuInfoBox",page01_tips_info);
         clickNextPage(".next",".back");
+        animate_index.addanimate();
     }
     //第二页js事件
     var page02Event = function (){
         pageTips(".icon-approximately","#menuInfoBox",page02_tips_info);
         clickNextPage(".next",".back");
+        animate_index.addanimate();
     }
     //第三页js事件
     var page03Event = function (){
@@ -105,6 +106,7 @@ var ctMMsCliskEvent = (function(){
                 animate_index.animate_next(ctMMsLoadEvent.loadpage3_1)
 
             }
+            animteDirection ="DirLeft"; //方向”向左“
         });
         $(backname).click(function(){
             var pageInfo = $(this).attr("pagename");
@@ -114,6 +116,7 @@ var ctMMsCliskEvent = (function(){
             if(pageInfo=="page2_1"){
                 animate_index.animate_back( ctMMsLoadEvent.loadpage2_1);
             }
+            animteDirection ="DirRight";//方向”向右“
         });
     }
 
@@ -162,10 +165,13 @@ var ctMMsCliskEvent = (function(){
 //切换动画
 
 animate_index={
-    fadeOutLeft : 'animated fadeOutLeftBig',
-    fadeOutRight : 'animated fadeOutRightBig',
+    fadeOutLeft : 'animated fadeOutLeft',
+    fadeOutRight : 'animated fadeOutRight',
+    fadeInLeft : 'animated fadeInLeft',
+    fadeInRight : 'animated fadeInRight',
     animationEnd : 'webkitAnimationEnd mozAnimationEnd MSAnimationEnd oanimationend animationend',
-
+    animationInRight : "<script>$('#st-trigger-effects,.container').addClass(animate_index.fadeInRight).one(animate_index.animationEnd, function () {$(this).removeClass(animate_index.fadeInRight);});</script>",
+    animationInLeft : "<script>$('#st-trigger-effects,.container').addClass(animate_index.fadeInLeft).one(animate_index.animationEnd, function () {$(this).removeClass(animate_index.fadeInLeft);});</script>",
     animate_next : function(callback){
         $('#st-trigger-effects,.container').addClass(animate_index.fadeOutLeft).one(animate_index.animationEnd, function () {
             callback();
@@ -176,5 +182,13 @@ animate_index={
         $('#st-trigger-effects,.container').addClass(animate_index.fadeOutRight).one(animate_index.animationEnd, function () {
             callback();
         });
+    },
+
+    addanimate : function (){
+        if(animteDirection=="DirLeft"){
+            $("#animateFade").html(animate_index.animationInRight);
+        }else{
+            $("#animateFade").html(animate_index.animationInLeft);
+        }
     }
 }
